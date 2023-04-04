@@ -13,7 +13,7 @@ form.addEventListener('submit', onFormSubmit);
 fillInputs();
 
 function saveInputs() {
-    inputsData = {
+    const inputsData = {
         email: inputValue.value,
         message: message.value,
     }

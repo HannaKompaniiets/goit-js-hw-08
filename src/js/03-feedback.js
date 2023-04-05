@@ -23,11 +23,19 @@ function saveInputs() {
 function onFormSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
-    console.log(localStorage.getItem(INPUT_VALUES_KEY))
+    const savedKeyValue = localStorage.getItem(INPUT_VALUES_KEY);
+    try {
+        const savedObj = JSON.parse(savedKeyValue);
+        console.log(savedObj);
+    } catch (error) {
+        console.log(error.name); 
+        console.log(error.message);
+    };
+        
     localStorage.removeItem(INPUT_VALUES_KEY);
 };
 
-function fillInputs(){
+function fillInputs() {
     const savedTexts = localStorage.getItem(INPUT_VALUES_KEY);
        if (savedTexts) {
         const json = JSON.parse(savedTexts);
@@ -35,5 +43,3 @@ function fillInputs(){
         message.value = json.message;
     }
 };
-
-

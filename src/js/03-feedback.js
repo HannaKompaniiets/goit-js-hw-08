@@ -23,6 +23,7 @@ function saveInputs() {
 function onFormSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
+    console.log(localStorage.getItem(INPUT_VALUES_KEY))
     localStorage.removeItem(INPUT_VALUES_KEY);
 };
 
@@ -34,4 +35,5 @@ function fillInputs(){
         message.value = json.message;
     }
 };
+
 
